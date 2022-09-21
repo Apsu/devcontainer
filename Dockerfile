@@ -3,7 +3,7 @@ FROM ubuntu:latest
 # Update and install packages
 RUN apt update
 RUN apt install -y sudo curl git-core openssh-client iputils-ping \
-    fish locales btop tmux vim jq lsb_release gnupg \
+    fish locales btop tmux vim jq lsb-release gnupg \
     python3 build-essential virtualenv pre-commit unzip \
     libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev \
     libncursesw5-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
