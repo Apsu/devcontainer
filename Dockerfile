@@ -9,12 +9,11 @@ RUN apt install -y sudo curl git-core openssh-client iputils-ping \
     libncursesw5-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 
 # Link "python" to "python3"
-RUN update-alternatives install /usr/bin/python python /usr/bin/python3 1
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 
-# Add vault repo and install
-RUN curl https://apt.releases.hashicorp.com/gpg | gpg --dearmor > /usr/share/keyrings/hashicorp-archive-keyring.gpg
-RUN echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" > /etc/apt/sources.list.d/hashicorp.list
-RUN apt update && apt install vault
+# Install vault binary
+RUN curl -O https://releases.hashicorp.com/vault/1.11.3/vault_1.11.3_linux_amd64.zip && \
+    unzip vault_1.11.3_linux_amd64.zip && mv vault /usr/bin/ && rm vault_1.11.3_linux_amd64.zip
 
 # Create user and setup sudo access
 RUN adduser --disabled-password --shell /bin/fish --gecos 'Dev User' dev
@@ -23,6 +22,9 @@ RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers.d/passwordless
 
 # Generate locales
 RUN locale-gen en_US.UTF-8
+
+# Create and own opt
+RUN mkdir -p /opt/plangrid && chown -R dev /opt
 
 # Setup image user/env
 USER dev
@@ -40,6 +42,12 @@ RUN curl https://pyenv.run | bash
 # RUN fish -c "pyenv install 3.9.4"
 RUN git clone https://github.com/tfutils/tfenv.git ~/.tfenv
 RUN git clone https://github.com/cunymatthieu/tgenv.git ~/.tgenv
+
+# Install awscli
+RUN pip install awscli mssh
+
+# Setup local bin
+RUN mkdir -p /home/dev/.local/bin
 
 # Start shell
 CMD ["fish"]
