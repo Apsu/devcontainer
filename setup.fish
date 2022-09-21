@@ -1,12 +1,21 @@
-set -Ux TERM xterm
-set -Ux LANG en_US.UTF-8
+#!/usr/bin/env fish
 
+push
+echo "Setting up git repos in workspace"
+mkdir -p ~/workspace
+cd ~/workspace
 
-ssh-agent -c | source
-ssh-add ~/.ssh/id_rsa
-ssh-add ~/.ssh/id_aws
+git clone git@github.com:plangrid/dacloud-terraform.git
+git clone git@github.com:plangrid/dacloud-tf-build-tools.git
+git clone git@github.com:plangrid/plangrid-devops.git
+git clone git@github.com:plangrid/spinnaker-tools.git
+git clone git@github.com:plangrid/onboarding.git
 
-set -Ux PYENV_ROOT "$HOME/.pyenv"
-set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
-pyenv init - fish | source
-pyenv virtualenv-init - fish| source
+cd ~/workspace/dacloud-tf-build-tools
+sed -i '/^.*brew install.*$/d' Makefile
+make setup
+
+cd ~/workspace/onboarding
+make get-aws-creds
+
+pop
