@@ -1,5 +1,8 @@
 #!/usr/bin/env fish
 
+set PYVER 3.9.4
+
+pushd
 echo "Setting up git repos in workspace"
 mkdir -p ~/workspace
 cd ~/workspace
@@ -18,3 +21,7 @@ make setup
 echo "Installing onboarding credential tool"
 cd ~/workspace/onboarding
 make get-aws-creds
+
+echo "Installing python $PYVER into pyenv"
+pyenv install $PYVER
+popd
