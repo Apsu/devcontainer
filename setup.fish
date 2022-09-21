@@ -1,11 +1,8 @@
 #!/usr/bin/env fish
 
-set PYVER 3.9.4
-
-pushd
 echo "Setting up git repos in workspace"
 mkdir -p ~/workspace
-cd ~/workspace
+pushd ~/workspace
 
 git clone git@github.com:plangrid/dacloud-terraform.git
 git clone git@github.com:plangrid/dacloud-tf-build-tools.git
@@ -22,6 +19,4 @@ echo "Installing onboarding credential tool"
 cd ~/workspace/onboarding
 make get-aws-creds
 
-echo "Installing python $PYVER into pyenv"
-pyenv install $PYVER
 popd

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+docker run -it --rm --platform=linux/amd64 -v ~/.ssh:/home/dev/.ssh devcontainer

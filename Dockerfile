@@ -39,7 +39,7 @@ COPY --chown=dev:dev setup.fish /home/dev/
 # Install pyenv
 RUN curl https://pyenv.run | bash
 # Install python 3.9.4
-# RUN fish -c "pyenv install 3.9.4"
+RUN fish -c "pyenv install 3.9.4"
 RUN git clone https://github.com/tfutils/tfenv.git ~/.tfenv
 RUN git clone https://github.com/cunymatthieu/tgenv.git ~/.tgenv
 
