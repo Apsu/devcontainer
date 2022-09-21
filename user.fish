@@ -1,5 +1,5 @@
 # Env vars
-set -Ux TERM xterm
+set -Ux TERM xterm-256color
 set -Ux LANG en_US.UTF-8
 
 # Setup SSH
@@ -24,3 +24,6 @@ fish_add_path -Up /opt/plangrid/
 
 # User bin path (python/etc)
 fish_add_path -Up $HOME/.local/bin
+
+# Other exports
+set -Ux ADSK_USER_NAME callice
