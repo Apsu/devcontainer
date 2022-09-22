@@ -12,11 +12,11 @@ git clone https://github.com/cunymatthieu/tgenv.git ~/.tgenv
 
 # Clone work repos
 cd ~/workspace
-git clone https://github.com/plangrid/dacloud-terraform.git
-git clone https://github.com/plangrid/dacloud-tf-build-tools.git
-git clone https://github.com/plangrid/plangrid-devops.git
-git clone https://github.com/plangrid/spinnaker-tools.git
-git clone https://github.com/plangrid/onboarding.git
+git clone git@github.com:plangrid/dacloud-terraform.git
+git clone git@github.com:plangrid/dacloud-tf-build-tools.git
+git clone git@github.com:plangrid/plangrid-devops.git
+git clone git@github.com:plangrid/spinnaker-tools.git
+git clone git@github.com:plangrid/onboarding.git
 
 # Setup TF build tools
 cd ~/workspace/dacloud-tf-build-tools
@@ -32,13 +32,3 @@ cd
 
 # Install awscli
 pip install awscli mssh
-
-# Install pyenv
-curl https://pyenv.run | bash
-# Setup pyenv
-set -Ux PYENV_ROOT "$HOME/.pyenv"
-fish_add_path -Up $PYENV_ROOT/bin
-pyenv init - fish | source
-pyenv virtualenv-init - fish | source
-# Install python 3.9.4
-pyenv install 3.9.4
