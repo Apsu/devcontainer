@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-docker pull apsu/devcontainer
-docker image prune -f
-docker run --detach --interactive --tty --platform=linux/amd64 --volume ~/.ssh:/home/dev/.ssh --name devcontainer apsu/devcontainer
+out=$(docker pull apsu/devcontainer)
+if [[ $out != *"up to date"* ]]; then
+    docker stop devcontainer
+    docker rm -f devcontainer
+    docker image prune -f
+fi
+docker run --detach --interactive --tty --platform=linux/amd64 --volume ~/.ssh:/home/dev/.ssh --name devcontainer apsu/devcontainer 2>/dev/null
 docker start --interactive --attach devcontainer
