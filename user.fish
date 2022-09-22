@@ -2,13 +2,6 @@
 set -Ux TERM xterm-256color
 set -Ux LANG en_US.UTF-8
 
-# Setup SSH
-# if status is-interactive
-#     ssh-agent -c | source
-#     ssh-add ~/.ssh/id_rsa
-#     ssh-add ~/.ssh/id_aws
-# end
-
 # Setup pyenv
 set -Ux PYENV_ROOT "$HOME/.pyenv"
 fish_add_path -Up $PYENV_ROOT/bin

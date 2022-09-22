@@ -41,17 +41,16 @@ COPY --chown=dev:dev setup.fish /home/dev/
 RUN curl https://pyenv.run | bash
 # Install python 3.9.4
 RUN fish -c "pyenv install 3.9.4"
+
 # Install tfenv/tgenv
 RUN git clone https://github.com/tfutils/tfenv.git ~/.tfenv
 RUN git clone https://github.com/cunymatthieu/tgenv.git ~/.tgenv
 
-# # Install awscli
-# RUN pip install awscli mssh
-
 # Setup local bin
 RUN mkdir -p /home/dev/.local/bin
 
-# RUN /home/dev/setup.fish
+# Install awscli
+RUN pip install awscli mssh
 
 # Start shell
 CMD ["fish"]

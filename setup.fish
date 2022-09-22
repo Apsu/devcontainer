@@ -1,14 +1,7 @@
 #!/usr/bin/env fish
 
-# Setup local bin
-mkdir -p /home/dev/.local/bin
-
 # Setup workspace
 mkdir -p ~/workspace
-
-# Install tfenv/tgenv
-git clone https://github.com/tfutils/tfenv.git ~/.tfenv
-git clone https://github.com/cunymatthieu/tgenv.git ~/.tgenv
 
 # Clone work repos
 cd ~/workspace
@@ -29,6 +22,3 @@ make get-aws-creds
 
 # Go home
 cd
-
-# Install awscli
-pip install awscli mssh
