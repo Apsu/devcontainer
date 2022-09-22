@@ -2,5 +2,5 @@
 
 docker pull apsu/devcontainer
 docker image prune -f
-docker run --platform=linux/amd64 --volume ~/.ssh:/home/dev/.ssh --name devcontainer apsu/devcontainer 2>/dev/null
+docker run --detach --interactive --tty --platform=linux/amd64 --volume ~/.ssh:/home/dev/.ssh --name devcontainer apsu/devcontainer
 docker start --interactive --attach devcontainer
