@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
 docker pull apsu/devcontainer
+docker image prune -f
 docker run -it --platform=linux/amd64 --volume ~/.ssh:/home/dev/.ssh --name devcontainer apsu/devcontainer 2>/dev/null
