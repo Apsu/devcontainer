@@ -1,4 +1,5 @@
 FROM ubuntu:latest
+ENV DOCKER_HOSTNAME=devcontainer
 
 # Update and install packages
 RUN apt update
