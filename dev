@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-docker run --platform=linux/amd64 --volume ~/.ssh:/home/dev/.ssh --name devcontainer devcontainer 2>/dev/null
-docker start --interactive --attach devcontainer
+docker pull apsu/devcontainer
+docker run -it --platform=linux/amd64 --volume ~/.ssh:/home/dev/.ssh --name devcontainer apsu/devcontainer 2>/dev/null
