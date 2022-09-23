@@ -21,6 +21,6 @@ fish_add_path -Up /opt/plangrid/
 fish_add_path -Up $HOME/.local/bin
 
 # First run setup script
-if -e ~/setup.fish
+if test -e ~/setup.fish
     ~/setup.fish && rm ~/setup.fish
 end
