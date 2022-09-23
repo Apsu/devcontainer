@@ -5,7 +5,7 @@ set -Ux LANG en_US.UTF-8
 set -Ux ADSK_USER_NAME callice
 
 # Setup pyenv
-set -Ux PYENV_ROOT "$HOME/.pyenv"
+set -Ux PYENV_ROOT $HOME/.pyenv
 fish_add_path -Up $PYENV_ROOT/bin
 pyenv init - fish | source
 pyenv virtualenv-init - fish | source
@@ -19,3 +19,8 @@ fish_add_path -Up /opt/plangrid/
 
 # User bin path (python/etc)
 fish_add_path -Up $HOME/.local/bin
+
+# First run setup script
+if -e ~/setup.fish
+    ~/setup.fish && rm ~/setup.fish
+end

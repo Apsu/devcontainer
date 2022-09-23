@@ -1,5 +1,7 @@
 #!/usr/bin/env fish
 
+echo "Running initial setup"
+
 # Setup workspace
 mkdir -p ~/workspace
 
