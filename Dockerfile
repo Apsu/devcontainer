@@ -53,4 +53,4 @@ RUN mkdir -p /home/dev/.local/bin
 RUN pip install awscli mssh
 
 # Start shell
-CMD fish
+CMD ["fish"]

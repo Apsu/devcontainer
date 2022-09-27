@@ -7,6 +7,7 @@ mkdir -p ~/workspace
 
 # Clone work repos
 cd ~/workspace
+ssh-keyscan github.com >> ~/.ssh/known_hosts
 git clone git@github.com:plangrid/dacloud-terraform.git
 git clone git@github.com:plangrid/dacloud-tf-build-tools.git
 git clone git@github.com:plangrid/plangrid-devops.git

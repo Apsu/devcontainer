@@ -19,8 +19,3 @@ fish_add_path -Up /opt/plangrid/
 
 # User bin path (python/etc)
 fish_add_path -Up $HOME/.local/bin
-
-# First run setup script
-if test -e ~/setup.fish
-    ~/setup.fish && rm ~/setup.fish
-end
