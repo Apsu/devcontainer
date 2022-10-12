@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 out=$(docker pull apsu/devcontainer)
-if [[ $out != *"up to date"* ]]; then
+if [[ $out != *"up to date"* ]] || ! docker ps -a | grep devcontainer; then
     docker stop devcontainer
     docker rm -f devcontainer
     docker image prune -f
